@@ -19,4 +19,9 @@ export class DashboardComponent {
   addChart() {
     this.charts.push(this.generateChartId())
   }
+
+  deleteChart(chart_id: string) {
+    const index = this.charts.findIndex(id => id === chart_id)
+    this.charts.splice(index, 1)
+  }
 }

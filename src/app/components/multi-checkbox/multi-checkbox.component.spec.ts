@@ -1,16 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MultiCheckboxComponent } from './multi-checkbox.component';
+import {MultiCheckboxComponent} from './multi-checkbox.component';
+import {AppModule} from "../../app.module";
 
-describe('MultiChexboxComponent', () => {
+describe('MultiCheckboxComponent', () => {
   let component: MultiCheckboxComponent;
   let fixture: ComponentFixture<MultiCheckboxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MultiCheckboxComponent ]
+      imports: [AppModule],
+      declarations: [
+        MultiCheckboxComponent,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

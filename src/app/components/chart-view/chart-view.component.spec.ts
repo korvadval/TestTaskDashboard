@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ChartViewComponent } from './chart-view.component';
+import {ChartViewComponent} from './chart-view.component';
+import {HighchartsChartComponent} from "highcharts-angular";
+import {DatePipe} from "@angular/common";
+import {AppModule} from "../../app.module";
 
 describe('ChartViewComponent', () => {
   let component: ChartViewComponent;
@@ -8,9 +11,14 @@ describe('ChartViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartViewComponent ]
+      imports: [AppModule],
+      declarations: [
+        ChartViewComponent,
+        HighchartsChartComponent
+      ],
+      providers: [DatePipe]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

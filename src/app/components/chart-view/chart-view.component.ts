@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {ChartsDataService} from "../../services/charts-data.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {DatePipe} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
-import { ChartSettingsDialogComponent} from "../chart-settings-dialog/chart-settings-dialog.component";
+import {ChartSettingsDialogComponent} from "../chart-settings-dialog/chart-settings-dialog.component";
 import {take} from 'rxjs/operators';
 import {ChartSettingDialogData, ChartSettings, ChartType, ExampleServerData, SensorsType} from "../../_types";
 
@@ -60,6 +60,8 @@ export class ChartViewComponent implements OnInit {
     },
   }
   chart_data: ExampleServerData | null = null
+
+  @Output() emitDeleteChart = new EventEmitter<boolean>()
 
   constructor(
     private _chartData: ChartsDataService,
@@ -117,6 +119,10 @@ export class ChartViewComponent implements OnInit {
         }
         this.is_init = true
       })
+  }
+
+  deleteChart() {
+    this.emitDeleteChart.emit()
   }
 
   ngOnInit(): void {

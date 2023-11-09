@@ -1,10 +1,20 @@
 <mat-card class="pos-r mat-elevation-z4 flex-grow flex-box center dv-432 mar-b-24" *ngIf="is_init">
   <ng-container *ngIf="chartOptions else loadingTemp">
 
-    <highcharts-chart *ngIf="chartOptions?.series?.length else noDataTemp" [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+    <highcharts-chart *ngIf="chartOptions['series']?.length else noDataTemp" [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
 
-    <div class="pos-a pos-t-12 pos-r-12 color-gray cur-p" (click)="openChartSettingsDialog()">
-      <mat-icon>settings</mat-icon>
+    <div class="pos-a pos-t-12 pos-r-12">
+      <div (click)="deleteChart()"
+           class="color-gray cur-p mar-b-8"
+      >
+        <mat-icon>delete</mat-icon>
+      </div>
+
+      <div (click)="openChartSettingsDialog()"
+           class="color-gray cur-p"
+      >
+        <mat-icon>settings</mat-icon>
+      </div>
     </div>
   </ng-container>
 

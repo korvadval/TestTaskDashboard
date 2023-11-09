@@ -1,4 +1,6 @@
-<app-chart-view *ngFor="let chart of charts"></app-chart-view>
+<app-chart-view *ngFor="let chart_id of charts"
+                (emitDeleteChart)="deleteChart(chart_id)"
+></app-chart-view>
 
 <div *ngIf="charts.length<4"
      class="flex-box center w100 pad-8 color-bg-primary cur-p brad-4"
