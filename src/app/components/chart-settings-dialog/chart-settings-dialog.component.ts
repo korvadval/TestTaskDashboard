@@ -1,10 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {ChartSettings, ChartType} from "../chart-view/chart-view.component";
 import {FormControl} from "@angular/forms";
-import {ServerDataType} from "../../services/charts-data.service";
-
-export type ChartSettingDialogData = { chart_settings: ChartSettings, chart_type: ChartType, chart_name: string }
+import {ChartSettingDialogData, ChartSettings, ChartType, SensorsType} from "../../_types";
 
 @Component({
   selector: 'app-chart-settings-dialog',
@@ -31,7 +28,7 @@ export class ChartSettingsDialogComponent {
   checkSelected() {
     if (this.chart_settings) {
       Object.keys(this.chart_settings).forEach((settings_key) => {
-        this.chart_settings![settings_key as Partial<ServerDataType>].children?.forEach(child => {
+        this.chart_settings![settings_key as Partial<SensorsType>].children?.forEach(child => {
           if (child.selected) {
             this.is_none_selected = false
             return

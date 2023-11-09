@@ -1,19 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
-import {ChartsDataService, ExampleServerData, ServerDataType} from "../../services/charts-data.service";
+import {ChartsDataService} from "../../services/charts-data.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {DatePipe} from "@angular/common";
-import {CheckItem} from "../multi-checkbox/multi-checkbox.component";
 import {MatDialog} from "@angular/material/dialog";
-import {ChartSettingDialogData, ChartSettingsDialogComponent} from "../chart-settings-dialog/chart-settings-dialog.component";
+import { ChartSettingsDialogComponent} from "../chart-settings-dialog/chart-settings-dialog.component";
 import {take} from 'rxjs/operators';
+import {ChartSettingDialogData, ChartSettings, ChartType, ExampleServerData, SensorsType} from "../../_types";
 
-export type ChartType = 'bar' | 'line'
-export type ChartSettings = {
-  temperatures: CheckItem,
-  illumination: CheckItem,
-  humidity: CheckItem,
-}
 
 @UntilDestroy()
 @Component({
@@ -34,7 +28,7 @@ export class ChartViewComponent implements OnInit {
     temperatures: {
       name: 'Temperature',
       selected: false,
-      value: ServerDataType.temperatures,
+      value: SensorsType.temperatures,
       children: [
         {name: 'Sensor #1', selected: false, value: 'sens_1'},
         {name: 'Sensor #2', selected: false, value: 'sens_2'},
@@ -45,7 +39,7 @@ export class ChartViewComponent implements OnInit {
     illumination: {
       name: 'Illumination',
       selected: false,
-      value: ServerDataType.illumination,
+      value: SensorsType.illumination,
       children: [
         {name: 'Sensor #1', selected: false, value: 'sens_1'},
         {name: 'Sensor #2', selected: false, value: 'sens_2'},
@@ -56,7 +50,7 @@ export class ChartViewComponent implements OnInit {
     humidity: {
       name: 'Humidity',
       selected: false,
-      value: ServerDataType.humidity,
+      value: SensorsType.humidity,
       children: [
         {name: 'Sensor #1', selected: false, value: 'sens_1'},
         {name: 'Sensor #2', selected: false, value: 'sens_2'},
@@ -86,13 +80,13 @@ export class ChartViewComponent implements OnInit {
 
     const buf_series: Highcharts.SeriesOptionsType[] = []
     Object.keys(this.chart_settings).forEach((settings_key) => {
-      const one_settings = this.chart_settings[settings_key as Partial<ServerDataType>]
+      const one_settings = this.chart_settings[settings_key as Partial<SensorsType>]
       one_settings.children?.forEach(child => {
         if (child.selected) {
           buf_series.push({
             name: one_settings.name + ' ' + child.name,
             type: this.chart_type,
-            data: this.chart_data![one_settings.value as Partial<ServerDataType>].map((data) => data.values[child.value as 'sens_1' | 'sens_2' | 'sens_3' | 'sens_4'])
+            data: this.chart_data![one_settings.value as Partial<SensorsType>].map((data) => data.values[child.value as 'sens_1' | 'sens_2' | 'sens_3' | 'sens_4'])
           })
         }
       })

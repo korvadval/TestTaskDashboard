@@ -1,11 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CheckItem} from "../../_types";
 
-export interface CheckItem {
-  name: string;
-  selected: boolean;
-  children?: CheckItem[];
-  value: string
-}
 
 @Component({
   selector: 'app-multi-checkbox',
