@@ -12,12 +12,8 @@ export class DashboardComponent {
   constructor() {
   }
 
-  generateChartId(): string {
-    return 'CHART_' + uuid4()
-  }
-
   addChart() {
-    this.charts.push(this.generateChartId())
+    this.charts.push('CHART_' + uuid4())
   }
 
   deleteChart(chart_id: string) {
