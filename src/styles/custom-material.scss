@@ -1,0 +1,17 @@
+.no-error {
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+
+    .mat-form-field-appearance-legacy {
+      bottom: 0 !important;
+    }
+  }
+
+}
+
+app-root,
+app-dashboard {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

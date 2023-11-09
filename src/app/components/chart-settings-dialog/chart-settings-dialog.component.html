@@ -1,0 +1,40 @@
+<!--dialog head-->
+<div class="pos-r">
+  <div class="fs-18">Chart settings</div>
+  <mat-icon class="pos-a pos-t--16 pos-r--16 color-gray cur-p" (click)="cancel()">close</mat-icon>
+</div>
+
+<!--dialog body-->
+<div *ngIf="chart_settings" class="pad-16">
+  <!--chart name selector-->
+  <div class="fs-16 mar-b-8">Chart name:</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Chart name:</mat-label>
+    <input matInput [formControl]="chart_name_control">
+  </mat-form-field>
+
+  <mat-divider class="mar-tb-16"></mat-divider>
+
+  <!--chart type selector-->
+  <div class="fs-16 mar-b-8">Chart type:</div>
+  <mat-radio-group [(ngModel)]="chart_type">
+    <mat-radio-button value="line" ngDefaultControl class="mar-r-16">line</mat-radio-button>
+    <mat-radio-button value="bar" ngDefaultControl>bar</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-divider class="mar-tb-16"></mat-divider>
+
+  <!--chart data selectors-->
+  <div class="fs-16 mar-b-8">Chart data:</div>
+  <div class="flex-box">
+    <app-multi-checkbox [(items)]="chart_settings.temperatures" class="mar-r-16"></app-multi-checkbox>
+    <app-multi-checkbox [(items)]="chart_settings.humidity" class="mar-r-16"></app-multi-checkbox>
+    <app-multi-checkbox [(items)]="chart_settings.illumination" class="mar-r-16"></app-multi-checkbox>
+  </div>
+</div>
+
+<!--dialog footer-->
+<div class="flex-box end">
+  <button mat-button class="mar-r-8" (click)="cancel()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="confirm()">Confirm</button>
+</div>

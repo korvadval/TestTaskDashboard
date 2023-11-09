@@ -1,0 +1,18 @@
+<!--main item-->
+<mat-checkbox [checked]="allSelected"
+              color="accent"
+              [indeterminate]="someSelected()"
+              (change)="setAll($event.checked)">
+  {{items.name}}
+</mat-checkbox>
+
+<!--children-->
+<div class="flex-box column a-start pad-l-16">
+  <div *ngFor="let child of items.children">
+    <mat-checkbox [(ngModel)]="child.selected"
+                  color="accent"
+                  (ngModelChange)="updateAllSelected()">
+      {{child.name}}
+    </mat-checkbox>
+  </div>
+</div>

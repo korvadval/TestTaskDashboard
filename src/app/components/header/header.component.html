@@ -1,0 +1,35 @@
+<div class="dv-64"></div>
+
+<div class="color-bg-primary mat-elevation-z4 pos-f pos-t-0 pos-l-0 pos-r-0 zi-10">
+  <div class="wrapper flex-box between dv-64 color-white text-bold">
+
+    <!--header text-->
+    <div class="fs-18">Dashboard</div>
+
+    <!--actions-->
+    <div class="flex-box">
+      <!--display dates-->
+      <ng-container *ngIf="startDate?.value && endDate?.value">
+        <div class="text-center dh-120">{{startDate?.value | date}}</div>
+        <div class="">-</div>
+        <div class="text-center dh-120">{{endDate?.value | date}}</div>
+      </ng-container>
+
+      <!--btn open picker-->
+      <button mat-stroked-button (click)="picker.open()">
+        <mat-icon>today</mat-icon>
+        {{(startDate && endDate) ? 'Change dates' : 'Select dates'}}
+      </button>
+
+      <!--invisible field-->
+      <mat-form-field style="visibility: hidden; width: 0;">
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,58 @@
+.flex{
+  &-box {
+    position: relative;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+
+    &.start {
+      justify-content: flex-start; // (по умолчанию): элементы сдвигаются к началу строки;
+    }
+    &.end {
+      justify-content: flex-end; // элементы сдвигаются к концу строки;
+    }
+    &.center {
+      justify-content: center; // Весь контент выравниваем по центру по основной оси
+    }
+    &.between {
+      justify-content: space-between; // Все дочерние элементы прижимаем к краям и делаем между ними одинаковые отступы
+    }
+    &.around {
+      justify-content: space-around; // Все дочерние элементы распределяются равномерно с равным расстоянием между собой и границами строки.
+    }
+    &.evenly {
+      justify-content: space-evenly; // Все дочерние элементы распределяются равномерно с равным расстоянием между собой и границами строки (отступ удвоенный как общий между 2 блоками).
+    }
+
+    &.a-center {
+      align-items: center !important; // Все дочерние элементы выравниваются по центру
+    }
+    &.a-end {
+      align-items: flex-end !important; // Все дочерние элементы прижимаем к низу
+    }
+    &.a-start {
+      align-items: flex-start !important; // Все дочерние элементы прижимаем к верху
+    }
+    &.a-stretch {
+      align-items: stretch !important; // Все дочерние элементы выравниваются по высоте
+    }
+    &.newline {
+      flex-flow: row wrap !important; // Перенос внутренних элементов на новую строку
+    }
+
+    &.column {
+      flex-direction: column;
+    }
+    &.column-reverse {
+      flex-direction: column-reverse;
+    }
+    &.row-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &-grow{
+    flex-grow: 1;
+  }
+}
+

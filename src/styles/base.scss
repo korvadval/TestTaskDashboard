@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.wrapper {
+  width: 960px;
+  min-width: 960px;
+  max-width: 960px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.w100 {
+  width: 100%;
+}
+
+//width height
+@each $i in 4, 8, 12, 16, 32, 48, 64, 96, 100, 120, 432 {
+  .dv-#{$i} {
+    height: #{$i}px;
+    min-height: #{$i}px;
+    max-height: #{$i}px;
+  }
+  .dh-#{$i} {
+    width: #{$i}px;
+    min-width: #{$i}px;
+    max-width: #{$i}px;
+  }
+
+  .rect-#{$i} {
+    width: #{$i}px !important;
+    min-width: #{$i}px !important;
+    height: #{$i}px !important;
+    min-height: #{$i}px !important;
+  }
+}
+
+//font-size
+@each $i in 12, 14, 16, 18, 24, 32, 48, 64 {
+  .fs-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+//margin and padding
+@each $i in 0, 2, 4, 8, 12, 16, 24, 32, 48, 64 {
+  .mar-#{$i} {
+    margin: #{$i}px;
+  }
+  .mar-l-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .mar-r-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .mar-lr-#{$i} {
+    @extend .mar-l-#{$i};
+    @extend .mar-r-#{$i};
+  }
+  .mar-t-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .mar-b-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .mar-tb-#{$i} {
+    @extend .mar-t-#{$i};
+    @extend .mar-b-#{$i};
+  }
+
+
+  .pad-#{$i} {
+    padding: #{$i}px;
+  }
+  .pad-l-#{$i} {
+    padding-left: #{$i}px !important;
+  }
+  .pad-r-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+  .pad-lr-#{$i} {
+    @extend .pad-l-#{$i};
+    @extend .pad-r-#{$i};
+  }
+  .pad-t-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+  .pad-b-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+  .pad-tb-#{$i} {
+    @extend .pad-t-#{$i};
+    @extend .pad-b-#{$i};
+  }
+}
+
+.pos-a {
+  position: absolute;
+}
+.pos-r {
+  position: relative;
+}
+.pos-f {
+  position: fixed;
+}
+.pos-sticky {
+  position: sticky
+}
+
+//positions
+@each $i in 0, 6, 12, 16 {
+  .pos-t-#{$i} {
+    top: #{$i}px
+  }
+  .pos-r-#{$i} {
+    right: #{$i}px
+  }
+  .pos-b-#{$i} {
+    bottom: #{$i}px
+  }
+  .pos-l-#{$i} {
+    left: #{$i}px
+  }
+
+  .pos-t--#{$i} {
+    top: -#{$i}px
+  }
+  .pos-r--#{$i} {
+    right: -#{$i}px
+  }
+  .pos-b--#{$i} {
+    bottom: -#{$i}px
+  }
+  .pos-l--#{$i} {
+    left: -#{$i}px
+  }
+
+  .pos-lt-#{$i} {
+    @extend .pos-l-#{$i};
+    @extend .pos-t-#{$i};
+  }
+  .pos-f-#{$i} {
+    @extend .pos-l-#{$i};
+    @extend .pos-t-#{$i};
+    @extend .pos-r-#{$i};
+    @extend .pos-b-#{$i};
+  }
+}
+
+//z-indexes
+@each $i in 0, 5, 10, 15 {
+  .zi-#{$i} {
+    z-index: #{$i};
+  }
+}
+
+//border-radius
+@each $i in 0, 4, 12, 16 {
+  .brad-#{$i} {
+    border-radius: #{$i}px;
+  }
+}
+
+
+.text {
+  &-bold {
+    font-weight: 500;
+  }
+
+  &-normal {
+    font-weight: 400;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.cur{
+  &-d{
+    cursor: default;
+  }
+  &-p{
+    cursor: pointer;
+  }
+}
+
+

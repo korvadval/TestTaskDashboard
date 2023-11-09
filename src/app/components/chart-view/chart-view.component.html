@@ -1,0 +1,24 @@
+<mat-card class="pos-r mat-elevation-z4 flex-grow flex-box center dv-432 mar-b-24" *ngIf="is_init">
+  <ng-container *ngIf="chartOptions else loadingTemp">
+
+    <highcharts-chart *ngIf="chartOptions?.series?.length else noDataTemp" [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+
+    <div class="pos-a pos-t-12 pos-r-12 color-gray cur-p" (click)="openChartSettingsDialog()">
+      <mat-icon>settings</mat-icon>
+    </div>
+  </ng-container>
+
+  <ng-template #loadingTemp>
+    <mat-spinner color="accent" [diameter]="32"></mat-spinner>
+  </ng-template>
+
+  <ng-template #noDataTemp>
+    <div class="flex-box column">
+      <div class="fs-18 text-bold text-center">No data</div>
+      <div class="fs-14 color-gray text-center">Please check settings of this chart</div>
+
+      <button mat-flat-button color="primary" class="mar-t-24 w100" (click)="openChartSettingsDialog()">Chart settings</button>
+    </div>
+  </ng-template>
+
+</mat-card>

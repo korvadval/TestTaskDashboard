@@ -1,0 +1,9 @@
+<app-chart-view *ngFor="let chart of charts"></app-chart-view>
+
+<div *ngIf="charts.length<4"
+     class="flex-box center w100 pad-8 color-bg-primary cur-p brad-4"
+     (click)="addChart()"
+>
+  <mat-icon class="color-white fs-32 rect-32">add</mat-icon>
+  <div class="fs-18 color-white text-bold">add chart</div>
+</div>

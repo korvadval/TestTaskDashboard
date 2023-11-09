@@ -1,0 +1,30 @@
+$primary: #673ab7;
+$white: #fff;
+$black: #333;
+$gray: #828282;
+
+$darken: 8%; //for hover
+
+:root {
+  --color-primary: #{$primary};
+  --color-white: #{$white};
+  --color-black: #{$black};
+  --color-gray: #{$gray};
+}
+
+.color{
+  &-primary{color: var(--color-primary) !important; &:hover{color: darken($primary, $darken) !important;}}
+  &-white{color: var(--color-white) !important; &:hover{color: darken($white, $darken) !important;}}
+  &-black{color: var(--color-black) !important; &:hover{color: darken($black, $darken) !important;}}
+  &-gray{color: var(--color-gray) !important; &:hover{color: darken($gray, $darken) !important;}}
+}
+
+.color-bg{
+  &-primary{background-color: var(--color-primary) !important}
+  &-primary.cur-p:hover{background-color: darken($primary, $darken) !important}
+  &-white{background-color: var(--color-white) !important}
+  &-black{background-color: var(--color-black) !important}
+  &-gray{background-color: var(--color-gray) !important}
+}
+
+
