@@ -28,4 +28,18 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('creating chart', () => {
+    const old_length = component.charts.length
+    component.addChart()
+    expect(component.charts.length).toBe(old_length + 1)
+  })
+
+  it('deleting chart', () => {
+    component.addChart()
+    const old_length = component.charts.length
+    component.deleteChart(component.charts[0])
+    expect(component.charts.length).toBe(old_length - 1)
+  })
+
 });

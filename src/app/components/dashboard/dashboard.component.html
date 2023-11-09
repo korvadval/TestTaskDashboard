@@ -1,5 +1,5 @@
 <app-chart-view *ngFor="let chart_id of charts"
-                (emitDeleteChart)="deleteChart(chart_id)"
+                (deleteChartEmitter)="deleteChart(chart_id)"
 ></app-chart-view>
 
 <div *ngIf="charts.length<4"

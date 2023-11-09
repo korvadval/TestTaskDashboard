@@ -4,7 +4,7 @@
     <highcharts-chart *ngIf="chartOptions['series']?.length else noDataTemp" [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
 
     <div class="pos-a pos-t-12 pos-r-12">
-      <div (click)="deleteChart()"
+      <div (click)="deleteChartEmitter.emit()"
            class="color-gray cur-p mar-b-8"
       >
         <mat-icon>delete</mat-icon>

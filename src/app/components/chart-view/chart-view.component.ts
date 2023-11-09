@@ -61,7 +61,7 @@ export class ChartViewComponent implements OnInit {
   }
   chart_data: ExampleServerData | null = null
 
-  @Output() emitDeleteChart = new EventEmitter<boolean>()
+  @Output() deleteChartEmitter = new EventEmitter()
 
   constructor(
     private _chartData: ChartsDataService,
@@ -119,10 +119,6 @@ export class ChartViewComponent implements OnInit {
         }
         this.is_init = true
       })
-  }
-
-  deleteChart() {
-    this.emitDeleteChart.emit()
   }
 
   ngOnInit(): void {
